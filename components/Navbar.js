@@ -16,6 +16,7 @@ const Navbar = () => {
             <div className='bg-white w-[88.5vw] flex  justify-between right-[5.25vw] fixed top-12 rounded-full  p-3 ' onMouseLeave={() => { setshowdropdown(false) }} >
 
                 <div className='logo flex gap-12 items-center px-8  '  >
+                    
                     <Image src="logo.svg" alt="" width={120} height={120} />
                     <ul className='flex  text-[#676b5f] cursor-pointer  font-medium text-[101%]  '>
                         <Link href={"/"}> <li onMouseOver={() => { setshowdropdown(false) }} className='hover:bg-[#eff0ec] px-4  py-3 rounded-lg'> Templates</li></Link>

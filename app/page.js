@@ -2,6 +2,7 @@
 import Image from "next/image";
 import localFont from "next/font/local";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const poppins = localFont({
   src: "./fonts/Poppins-ExtraBold.ttf",
@@ -11,13 +12,20 @@ const poppins = localFont({
 
 
 
+
 export default function Home() {
 
+  const router=useRouter()
   const [Name, setName] = useState("")
 
   const handleChange = (e) => {
     setName(e.target.value)
   }
+
+  const createTree=() => {
+    router.push(`/generate?handle=${Name}`)
+  }
+  
 
   return (
     <main>
@@ -31,11 +39,11 @@ export default function Home() {
           <p className="text-[#d2e823]  my-4 text-lg">Join 50M+ people using Linktree for their link in bio. One link to help you share everything you create, curate and sell from your Instagram, TikTok, Twitter, YouTube and other social media profiles.</p>
           <div className="input flex gap-2 py-4">
             <div>
-              <label htmlFor="yourname" className=" absolute bottom-[9.8%] text-lg pl-3 text-[#676b5f] ">BitLi.nk/</label>
+              <label htmlFor="yourname" className=" absolute bottom-[9.38%] text-lg pl-3 text-[#676b5f] ">BitLi.nk/</label>
 
               <input id="yourname" name="yourname" value={Name} onChange={(e) => { handleChange(e) }} className="  pl-20 py-4 rounded-xl focus:outline-green-700 placeholder:text-xl text-xl text-[#676b5f]" type="text" placeholder="yourname" />
             </div>
-            <button className="bg-[#e9c0e9] rounded-full p-4 text-xl">Claim your Linktree</button>
+            <button onClick={()=>createTree()} className="bg-[#e9c0e9] rounded-full p-4 text-xl">Claim your Linktree</button>
           </div>
 
         </div>
